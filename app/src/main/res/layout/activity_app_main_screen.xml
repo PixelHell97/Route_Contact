@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/first_color"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".AppMainScreen">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/add_new_contact"
+        android:textColor="@color/forth_color"
+        android:textSize="36sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contact_name_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        app:errorEnabled="true"
+        app:startIconDrawable="@drawable/user">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contact_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/contact_name"
+            android:textColorHint="@color/third_color"
+            android:inputType="text"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contact_number_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="6dp"
+        app:errorEnabled="true"
+        app:prefixText="+20 "
+        app:prefixTextColor="@color/third_color"
+        app:startIconDrawable="@drawable/telephone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contact_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/contact_phone_number"
+            android:textColor="@color/white"
+            android:textColorHint="@color/third_color"
+            android:inputType="number"
+            android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/description_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="142dp"
+        android:layout_margin="6dp"
+        android:singleLine="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top|start"
+            android:textColor="@color/white"
+            android:hint="@string/description"
+            android:textColorHint="@color/third_color"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/second_color"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:onClick="saveContact"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/contact_item" />
+
+</LinearLayout>
